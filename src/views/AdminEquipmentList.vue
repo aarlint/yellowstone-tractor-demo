@@ -2,7 +2,13 @@
   <div class="p-4 pb-24">
     <div class="flex items-center justify-between mb-4">
       <h1 class="text-xl font-bold text-navy-900">Equipment</h1>
-      <span class="text-sm text-gray-500">{{ items.length }} items</span>
+      <div class="flex items-center gap-3">
+        <router-link to="/#equipment" class="text-sm text-gray-500 hover:text-amber-500 transition-colors flex items-center gap-1">
+          <ExternalLink class="w-3.5 h-3.5" />
+          View Site
+        </router-link>
+        <span class="text-sm text-gray-300">{{ items.length }} items</span>
+      </div>
     </div>
 
     <div v-if="loading" class="text-center py-12 text-gray-400">Loading...</div>
@@ -26,6 +32,10 @@
           <p class="text-sm text-gray-500 truncate">{{ item.brand }} &middot; {{ item.category }}</p>
           <p v-if="item.price" class="text-sm font-semibold text-amber-600">{{ item.price }}</p>
         </div>
+        <router-link :to="`/equipment/${item.id}`" @click.stop
+          class="p-2 text-gray-400 hover:text-amber-500 transition-colors flex-shrink-0" title="Preview listing">
+          <Eye class="w-4 h-4" />
+        </router-link>
         <ChevronRight class="w-5 h-5 text-gray-400 flex-shrink-0" />
       </router-link>
     </div>
@@ -39,7 +49,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { Tractor, ChevronRight, Plus } from 'lucide-vue-next'
+import { Tractor, ChevronRight, Plus, ExternalLink, Eye } from 'lucide-vue-next'
 import { useApi } from '../composables/useApi.js'
 
 const { apiFetch } = useApi()

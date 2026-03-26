@@ -30,7 +30,7 @@
               </div>
               <div>
                 <div class="font-semibold text-navy-900">Email</div>
-                <span class="text-gray-500">yellowstonetractor@yahoo.com</span>
+                <a href="mailto:yellowstonetractor@yahoo.com" class="text-gray-500 hover:text-amber-500 transition-colors">yellowstonetractor@yahoo.com</a>
               </div>
             </div>
           </div>

@@ -4,7 +4,7 @@
       <div class="grid md:grid-cols-4 gap-8">
         <div class="md:col-span-2">
           <div class="flex items-center gap-2 mb-4">
-            <Tractor class="w-6 h-6 text-amber-500" />
+            <img src="/images/yt-logo-white.png" alt="Yellowstone Tractor" class="h-12" />
             <span class="text-white font-bold text-lg">Yellowstone Tractor</span>
           </div>
           <p class="text-gray-400 text-sm leading-relaxed max-w-md">
@@ -29,7 +29,7 @@
             <p>Belgrade: (406) 388-2423</p>
             <p>Victor: (406) 642-6090</p>
             <p>Kalispell: (406) 579-7297</p>
-            <p class="pt-2">yellowstonetractor@yahoo.com</p>
+            <p class="pt-2"><a href="mailto:yellowstonetractor@yahoo.com" class="hover:text-amber-500 transition-colors">yellowstonetractor@yahoo.com</a></p>
           </div>
         </div>
       </div>
@@ -52,8 +52,6 @@
 </template>
 
 <script setup>
-import { Tractor } from 'lucide-vue-next'
-
 const links = [
   { href: '#about', label: 'About Us' },
   { href: '#equipment', label: 'Equipment' },

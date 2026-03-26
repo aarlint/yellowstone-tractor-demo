@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <router-link to="/" class="flex items-center gap-2">
-          <Tractor class="w-7 h-7 text-amber-500" />
+          <img src="/images/yt-logo-white.png" alt="Yellowstone Tractor" class="h-10" />
           <span class="text-white font-bold text-lg">Yellowstone Tractor</span>
         </router-link>
 
@@ -40,7 +40,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Tractor, Menu, X } from 'lucide-vue-next'
+import { Menu, X } from 'lucide-vue-next'
 
 const open = ref(false)
 
