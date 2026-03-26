@@ -27,25 +27,40 @@
         </button>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div v-if="loading" class="text-center py-12 text-gray-400">Loading equipment...</div>
+
+      <div v-else class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div v-for="item in filtered" :key="item.id"
           class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow border border-gray-100">
-          <div class="h-48 bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center">
-            <component :is="item.brand === 'LS Tractor' ? Tractor : Fan"
+          <div class="h-48 bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center overflow-hidden">
+            <img v-if="primaryPhoto(item)" :src="`/uploads/${primaryPhoto(item)}`"
+              :alt="item.name" class="w-full h-full object-cover" />
+            <component v-else :is="item.brand === 'LS Tractor' ? Tractor : Fan"
               class="w-16 h-16 text-amber-500/60" />
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs font-semibold text-amber-500 uppercase">{{ item.brand }}</span>
-              <span class="text-xs bg-navy-900 text-white px-2 py-1 rounded-full">{{ item.hp }}</span>
+              <div class="flex items-center gap-2">
+                <span v-if="item.condition === 'Used'" class="text-xs bg-gray-500 text-white px-2 py-1 rounded-full">Used</span>
+                <span class="text-xs bg-navy-900 text-white px-2 py-1 rounded-full">{{ item.engine_hp }}</span>
+              </div>
             </div>
             <h3 class="text-xl font-bold text-navy-900 mb-1">{{ item.name }}</h3>
-            <p class="text-sm text-gray-500 mb-4">{{ item.tagline }}</p>
+            <p class="text-sm text-gray-500 mb-4">{{ item.description }}</p>
+
+            <div v-if="item.price" class="mb-3">
+              <span class="text-lg font-bold text-amber-600">{{ item.price }}</span>
+            </div>
 
             <div class="space-y-2 mb-4">
               <div class="flex items-center gap-2 text-sm text-gray-600">
                 <Cog class="w-4 h-4 text-gray-400" />
-                <span>{{ item.engine }} &middot; {{ item.transmission }}</span>
+                <span>{{ item.engine_hp }} &middot; {{ item.transmission }}</span>
+              </div>
+              <div v-if="item.hours" class="flex items-center gap-2 text-sm text-gray-600">
+                <Clock class="w-4 h-4 text-gray-400" />
+                <span>{{ item.hours }} hours</span>
               </div>
             </div>
 
@@ -63,16 +78,44 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { Tractor, Fan, Cog } from 'lucide-vue-next'
-import { equipment } from '../data/inventory.js'
+import { ref, computed, onMounted } from 'vue'
+import { Tractor, Fan, Cog, Clock } from 'lucide-vue-next'
 
-const categories = ['All', 'Compact Tractor', 'Utility Tractor', 'Zero-Turn Mower']
+const items = ref([])
+const loading = ref(true)
+const categories = ['All', 'Compact Tractor', 'Utility Tractor', 'Zero-Turn Mower', 'Implement', 'Trailer']
 const activeCategory = ref('All')
 
-const filtered = computed(() =>
-  activeCategory.value === 'All'
-    ? equipment
-    : equipment.filter(e => e.category === activeCategory.value)
-)
+const filtered = computed(() => {
+  const active = categories.filter(c => c !== 'All').filter(c =>
+    items.value.some(e => e.category === c)
+  )
+  const visibleCats = ['All', ...active]
+  if (activeCategory.value === 'All') return items.value
+  return items.value.filter(e => e.category === activeCategory.value)
+})
+
+const visibleCategories = computed(() => {
+  const active = categories.filter(c => c !== 'All').filter(c =>
+    items.value.some(e => e.category === c)
+  )
+  return ['All', ...active]
+})
+
+function primaryPhoto(item) {
+  if (!item.photos?.length) return null
+  const primary = item.photos.find(p => p.is_primary)
+  return (primary || item.photos[0])?.filename
+}
+
+onMounted(async () => {
+  try {
+    const res = await fetch('/api/equipment')
+    items.value = await res.json()
+  } catch (e) {
+    console.error('Failed to load equipment:', e)
+  } finally {
+    loading.value = false
+  }
+})
 </script>
