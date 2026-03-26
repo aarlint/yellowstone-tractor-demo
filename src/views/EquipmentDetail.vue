@@ -105,7 +105,7 @@
 
               <!-- Contact CTA -->
               <button @click="showForm = !showForm"
-                class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-navy-900 px-6 py-3 rounded-lg font-semibold transition-colors">
+                class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
                 <MessageSquare class="w-5 h-5" />
                 Inquire About This Equipment
               </button>
@@ -156,7 +156,7 @@
                   'w-full py-4 rounded-lg font-bold text-lg transition-colors',
                   submitted
                     ? 'bg-green-500 text-white'
-                    : 'bg-amber-500 hover:bg-amber-600 text-navy-900'
+                    : 'bg-amber-500 hover:bg-amber-600 text-white'
                 ]">
                 <span v-if="submitted" class="flex items-center justify-center gap-2">
                   <Check class="w-5 h-5" /> Message Sent

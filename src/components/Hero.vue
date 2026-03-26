@@ -25,7 +25,7 @@
 
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="/#equipment"
-            class="bg-amber-500 hover:bg-amber-600 text-navy-900 px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
+            class="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
             Browse Equipment
           </a>
           <a href="/#contact"

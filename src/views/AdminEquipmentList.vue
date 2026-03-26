@@ -32,7 +32,7 @@
 
     <router-link to="/admin/equipment/new"
       class="fixed bottom-6 right-6 w-14 h-14 bg-amber-500 hover:bg-amber-600 rounded-full flex items-center justify-center shadow-lg transition-colors">
-      <Plus class="w-7 h-7 text-navy-900" />
+      <Plus class="w-7 h-7 text-white" />
     </router-link>
   </div>
 </template>

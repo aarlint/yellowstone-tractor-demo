@@ -18,7 +18,7 @@
             {{ link.label }}
           </a>
           <a href="/#contact"
-            class="bg-amber-500 hover:bg-amber-600 text-navy-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+            class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
             Get a Quote
           </a>
         </div>
@@ -30,7 +30,7 @@
           {{ link.label }}
         </a>
         <a href="/#contact" @click="open = false"
-          class="block bg-amber-500 hover:bg-amber-600 text-navy-900 px-4 py-2 rounded-lg text-sm font-semibold text-center transition-colors">
+          class="block bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-lg text-sm font-semibold text-center transition-colors">
           Get a Quote
         </a>
       </div>

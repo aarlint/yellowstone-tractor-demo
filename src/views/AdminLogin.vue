@@ -19,7 +19,7 @@
         <p v-if="error" class="text-red-400 text-sm text-center">{{ error }}</p>
 
         <button type="submit" :disabled="submitting"
-          class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-navy-900 font-bold rounded-xl text-lg transition-colors disabled:opacity-50">
+          class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl text-lg transition-colors disabled:opacity-50">
           {{ submitting ? 'Signing in...' : 'Sign In' }}
         </button>
       </form>

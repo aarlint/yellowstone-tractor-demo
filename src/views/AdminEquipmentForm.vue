@@ -157,7 +157,7 @@
     <!-- Sticky save -->
     <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 z-50">
       <button @click="save" :disabled="saving"
-        class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-navy-900 font-bold rounded-xl text-lg transition-colors disabled:opacity-50">
+        class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl text-lg transition-colors disabled:opacity-50">
         {{ saving ? 'Saving...' : (isEdit ? 'Save Changes' : 'Create Equipment') }}
       </button>
     </div>
