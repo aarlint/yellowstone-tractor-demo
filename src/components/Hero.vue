@@ -50,8 +50,8 @@
         </div>
       </div>
       <div class="hidden lg:block">
-        <img src="/images/hero-tractor.jpg" alt="LS Tractor"
-          class="w-full rounded-2xl shadow-2xl shadow-black/30 border border-white/10" />
+        <img src="/images/hero-tractor.png" alt="LS Tractor MT774"
+          class="w-full drop-shadow-2xl" />
       </div>
       </div>
     </div>
