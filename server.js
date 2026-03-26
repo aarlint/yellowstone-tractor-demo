@@ -103,8 +103,8 @@ app.get('/api/admin/equipment', authMiddleware, (req, res) => {
 app.post('/api/admin/equipment', authMiddleware, upload.array('photos', 10), (req, res) => {
   const data = JSON.parse(req.body.data || '{}')
   const result = db.prepare(`
-    INSERT INTO equipment (name, brand, category, condition, year, engine_hp, transmission, loader_lift_capacity, hours, price, description, features, in_stock, sort_order)
-    VALUES (@name, @brand, @category, @condition, @year, @engine_hp, @transmission, @loader_lift_capacity, @hours, @price, @description, @features, @in_stock, @sort_order)
+    INSERT INTO equipment (name, brand, category, condition, year, engine_hp, transmission, loader_lift_capacity, hours, price, description, features, in_stock, sort_order, warranty, deck_size)
+    VALUES (@name, @brand, @category, @condition, @year, @engine_hp, @transmission, @loader_lift_capacity, @hours, @price, @description, @features, @in_stock, @sort_order, @warranty, @deck_size)
   `).run({
     name: data.name,
     brand: data.brand,
@@ -119,7 +119,9 @@ app.post('/api/admin/equipment', authMiddleware, upload.array('photos', 10), (re
     description: data.description || null,
     features: data.features || null,
     in_stock: data.in_stock ?? 1,
-    sort_order: data.sort_order ?? 0
+    sort_order: data.sort_order ?? 0,
+    warranty: data.warranty || null,
+    deck_size: data.deck_size || null
   })
 
   const equipId = result.lastInsertRowid
@@ -144,7 +146,8 @@ app.put('/api/admin/equipment/:id', authMiddleware, upload.array('photos', 10), 
       year = @year, engine_hp = @engine_hp, transmission = @transmission,
       loader_lift_capacity = @loader_lift_capacity, hours = @hours, price = @price,
       description = @description, features = @features, in_stock = @in_stock,
-      sort_order = @sort_order, updated_at = datetime('now')
+      sort_order = @sort_order, warranty = @warranty, deck_size = @deck_size,
+      updated_at = datetime('now')
     WHERE id = @id
   `).run({
     id: req.params.id,
@@ -161,7 +164,9 @@ app.put('/api/admin/equipment/:id', authMiddleware, upload.array('photos', 10), 
     description: data.description || null,
     features: data.features || null,
     in_stock: data.in_stock ?? 1,
-    sort_order: data.sort_order ?? 0
+    sort_order: data.sort_order ?? 0,
+    warranty: data.warranty || null,
+    deck_size: data.deck_size || null
   })
 
   if (req.files?.length) {

@@ -126,6 +126,10 @@ function seed() {
   console.log('Seeded 6 equipment items')
 }
 
+// Add new columns (idempotent)
+try { db.exec('ALTER TABLE equipment ADD COLUMN warranty TEXT') } catch {}
+try { db.exec('ALTER TABLE equipment ADD COLUMN deck_size TEXT') } catch {}
+
 seed()
 
 export { db, DATA_DIR, UPLOADS_DIR }

@@ -59,6 +59,10 @@
                 <Cog class="w-4 h-4 text-gray-400" />
                 <span>{{ item.engine_hp }} &middot; {{ item.transmission }}</span>
               </div>
+              <div v-if="item.deck_size" class="flex items-center gap-2 text-sm text-gray-600">
+                <Ruler class="w-4 h-4 text-gray-400" />
+                <span>{{ item.deck_size }} Deck</span>
+              </div>
               <div v-if="item.hours" class="flex items-center gap-2 text-sm text-gray-600">
                 <Clock class="w-4 h-4 text-gray-400" />
                 <span>{{ item.hours }} hours</span>
@@ -81,7 +85,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
-import { Tractor, Fan, Cog, Clock } from 'lucide-vue-next'
+import { Tractor, Fan, Cog, Clock, Ruler } from 'lucide-vue-next'
 
 const items = ref([])
 const loading = ref(true)

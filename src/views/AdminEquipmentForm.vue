@@ -55,6 +55,10 @@
             class="px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:outline-none text-base" />
           <input v-model.number="form.year" type="number" placeholder="Year"
             class="px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:outline-none text-base" />
+          <input v-model="form.deck_size" placeholder="Deck size (e.g. 54&quot;)"
+            class="px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:outline-none text-base" />
+          <input v-model="form.warranty" placeholder="Warranty (e.g. 6 Year)"
+            class="px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:outline-none text-base" />
         </div>
         <input v-if="form.condition === 'Used'" v-model.number="form.hours" type="number" placeholder="Hours"
           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-amber-500 focus:outline-none text-base" />
@@ -190,7 +194,9 @@ const form = ref({
   hours: null,
   price: '',
   description: '',
-  sort_order: 0
+  sort_order: 0,
+  warranty: '',
+  deck_size: ''
 })
 
 const featureList = ref([])
@@ -306,7 +312,9 @@ onMounted(async () => {
       hours: item.hours,
       price: item.price || '',
       description: item.description || '',
-      sort_order: item.sort_order || 0
+      sort_order: item.sort_order || 0,
+      warranty: item.warranty || '',
+      deck_size: item.deck_size || ''
     }
     featureList.value = item.features || []
     callForPricing.value = !item.price

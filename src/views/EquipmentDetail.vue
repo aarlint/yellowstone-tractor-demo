@@ -60,9 +60,15 @@
               <h1 class="text-3xl font-extrabold text-navy-900 mb-4">{{ item.name }}</h1>
 
               <!-- Price -->
-              <div class="mb-6">
+              <div class="mb-4">
                 <span v-if="item.price" class="text-2xl font-bold text-amber-600">{{ item.price }}</span>
                 <span v-else class="text-lg text-gray-500 italic">Call for Pricing</span>
+              </div>
+
+              <!-- Warranty badge -->
+              <div v-if="item.warranty" class="mb-6 inline-flex items-center gap-1.5 bg-green-50 text-green-700 text-sm font-semibold px-3 py-1.5 rounded-full border border-green-200">
+                <ShieldCheck class="w-4 h-4" />
+                {{ item.warranty }} Warranty
               </div>
 
               <!-- Description -->
@@ -78,9 +84,13 @@
                   <div class="text-xs text-gray-400 uppercase mb-1">Transmission</div>
                   <div class="font-semibold text-navy-900">{{ item.transmission }}</div>
                 </div>
-                <div v-if="item.lift_capacity" class="bg-white rounded-xl p-4 border border-gray-100">
+                <div v-if="item.loader_lift_capacity" class="bg-white rounded-xl p-4 border border-gray-100">
                   <div class="text-xs text-gray-400 uppercase mb-1">Lift Capacity</div>
-                  <div class="font-semibold text-navy-900">{{ item.lift_capacity }}</div>
+                  <div class="font-semibold text-navy-900">{{ item.loader_lift_capacity }}</div>
+                </div>
+                <div v-if="item.deck_size" class="bg-white rounded-xl p-4 border border-gray-100">
+                  <div class="text-xs text-gray-400 uppercase mb-1">Deck Size</div>
+                  <div class="font-semibold text-navy-900">{{ item.deck_size }}</div>
                 </div>
                 <div v-if="item.hours" class="bg-white rounded-xl p-4 border border-gray-100">
                   <div class="text-xs text-gray-400 uppercase mb-1">Hours</div>
@@ -176,7 +186,7 @@
 <script setup>
 import { ref, reactive, nextTick, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { Tractor, Fan, ArrowLeft, MessageSquare, Check } from 'lucide-vue-next'
+import { Tractor, Fan, ArrowLeft, MessageSquare, Check, ShieldCheck } from 'lucide-vue-next'
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/Footer.vue'
 
