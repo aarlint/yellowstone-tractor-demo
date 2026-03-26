@@ -8,6 +8,10 @@ const router = createRouter({
       component: () => import('./views/PublicHome.vue')
     },
     {
+      path: '/equipment/:id',
+      component: () => import('./views/EquipmentDetail.vue')
+    },
+    {
       path: '/admin/login',
       component: () => import('./views/AdminLogin.vue')
     },

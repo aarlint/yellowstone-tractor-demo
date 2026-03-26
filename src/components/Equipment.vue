@@ -30,8 +30,9 @@
       <div v-if="loading" class="text-center py-12 text-gray-400">Loading equipment...</div>
 
       <div v-else class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div v-for="item in filtered" :key="item.id"
-          class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow border border-gray-100">
+        <router-link v-for="item in filtered" :key="item.id"
+          :to="`/equipment/${item.id}`"
+          class="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow border border-gray-100 block">
           <div class="h-48 bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center overflow-hidden">
             <img v-if="primaryPhoto(item)" :src="`/uploads/${primaryPhoto(item)}`"
               :alt="item.name" class="w-full h-full object-cover" />
@@ -71,7 +72,7 @@
               </span>
             </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </section>
@@ -79,6 +80,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
 import { Tractor, Fan, Cog, Clock } from 'lucide-vue-next'
 
 const items = ref([])
