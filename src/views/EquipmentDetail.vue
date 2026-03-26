@@ -104,12 +104,66 @@
               </div>
 
               <!-- Contact CTA -->
-              <router-link to="/#contact"
+              <button @click="showForm = !showForm"
                 class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-navy-900 px-6 py-3 rounded-lg font-semibold transition-colors">
                 <MessageSquare class="w-5 h-5" />
                 Inquire About This Equipment
-              </router-link>
+              </button>
             </div>
+          </div>
+        </div>
+
+        <!-- Inline Inquiry Form -->
+        <div v-if="showForm" id="inquiry-form" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+          <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 max-w-2xl mx-auto">
+            <h2 class="text-xl font-bold text-navy-900 mb-1">Inquire About This Equipment</h2>
+            <p class="text-sm text-gray-500 mb-6">{{ item.name }}</p>
+
+            <form @submit.prevent="handleSubmit" class="space-y-5">
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-sm font-semibold text-navy-900 mb-1">First Name</label>
+                  <input v-model="form.firstName" type="text" required
+                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition" />
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-navy-900 mb-1">Last Name</label>
+                  <input v-model="form.lastName" type="text" required
+                    class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition" />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-navy-900 mb-1">Email</label>
+                <input v-model="form.email" type="email" required
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-navy-900 mb-1">Phone</label>
+                <input v-model="form.phone" type="tel"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold text-navy-900 mb-1">Message</label>
+                <textarea v-model="form.message" rows="4"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition resize-none"></textarea>
+              </div>
+
+              <button type="submit"
+                :class="[
+                  'w-full py-4 rounded-lg font-bold text-lg transition-colors',
+                  submitted
+                    ? 'bg-green-500 text-white'
+                    : 'bg-amber-500 hover:bg-amber-600 text-navy-900'
+                ]">
+                <span v-if="submitted" class="flex items-center justify-center gap-2">
+                  <Check class="w-5 h-5" /> Message Sent
+                </span>
+                <span v-else>Send Inquiry</span>
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -120,9 +174,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, reactive, nextTick, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { Tractor, Fan, ArrowLeft, MessageSquare } from 'lucide-vue-next'
+import { Tractor, Fan, ArrowLeft, MessageSquare, Check } from 'lucide-vue-next'
 import Navbar from '../components/Navbar.vue'
 import Footer from '../components/Footer.vue'
 
@@ -130,6 +184,24 @@ const route = useRoute()
 const item = ref(null)
 const loading = ref(true)
 const activePhoto = ref(null)
+const showForm = ref(false)
+const submitted = ref(false)
+const form = reactive({
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  message: ''
+})
+
+function handleSubmit() {
+  submitted.value = true
+  setTimeout(() => {
+    submitted.value = false
+    showForm.value = false
+    Object.assign(form, { firstName: '', lastName: '', email: '', phone: '', message: '' })
+  }, 3000)
+}
 
 onMounted(async () => {
   try {

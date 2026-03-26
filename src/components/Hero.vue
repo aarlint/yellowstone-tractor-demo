@@ -7,7 +7,8 @@
     </div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-      <div class="max-w-3xl">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
         <div class="flex items-center gap-2 mb-6">
           <Award class="w-5 h-5 text-amber-500" />
           <span class="text-amber-500 font-semibold text-sm uppercase tracking-wider">LS Dealer Excellence Award Winner</span>
@@ -23,11 +24,11 @@
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#equipment"
+          <a href="/#equipment"
             class="bg-amber-500 hover:bg-amber-600 text-navy-900 px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
             Browse Equipment
           </a>
-          <a href="#contact"
+          <a href="/#contact"
             class="border-2 border-white/20 hover:border-amber-500 text-white hover:text-amber-500 px-8 py-4 rounded-lg font-bold text-lg transition-colors text-center">
             Contact Us
           </a>
@@ -47,6 +48,11 @@
             <div class="text-gray-400 text-sm">Premium Brands</div>
           </div>
         </div>
+      </div>
+      <div class="hidden lg:block">
+        <img src="/images/hero-tractor.jpg" alt="LS Tractor"
+          class="w-full rounded-2xl shadow-2xl shadow-black/30 border border-white/10" />
+      </div>
       </div>
     </div>
   </section>

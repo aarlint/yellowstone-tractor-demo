@@ -13,11 +13,8 @@
 
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-white rounded-2xl p-10 shadow-sm hover:shadow-lg transition-shadow border border-gray-100">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center">
-              <Tractor class="w-7 h-7 text-amber-500" />
-            </div>
-            <h3 class="text-2xl font-bold text-navy-900">LS Tractor</h3>
+          <div class="flex items-center gap-4 mb-6">
+            <img src="/images/ls-tractor-logo.png" alt="LS Tractor" class="h-10 w-auto" />
           </div>
           <p class="text-gray-600 leading-relaxed mb-6">
             South Korea's leading tractor manufacturer, delivering reliable power and advanced features at an exceptional value. From 24 HP compact models to 73+ HP utility tractors — built for real work.
@@ -31,11 +28,8 @@
         </div>
 
         <div class="bg-white rounded-2xl p-10 shadow-sm hover:shadow-lg transition-shadow border border-gray-100">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center">
-              <Fan class="w-7 h-7 text-amber-500" />
-            </div>
-            <h3 class="text-2xl font-bold text-navy-900">Bad Boy Mowers</h3>
+          <div class="flex items-center gap-4 mb-6">
+            <img src="/images/badboy-logo.svg" alt="Bad Boy Mowers" class="h-10 w-auto" />
           </div>
           <p class="text-gray-600 leading-relaxed mb-6">
             American-made zero-turn mowers engineered for performance and durability. From residential lawns to commercial properties — Bad Boy builds mowers that don't quit.

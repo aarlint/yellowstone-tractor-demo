@@ -16,7 +16,7 @@
           <h4 class="text-white font-semibold mb-4">Quick Links</h4>
           <ul class="space-y-2">
             <li v-for="link in links" :key="link.href">
-              <a :href="link.href" class="text-gray-400 hover:text-amber-500 text-sm transition-colors">
+              <a :href="'/' + link.href" class="text-gray-400 hover:text-amber-500 text-sm transition-colors">
                 {{ link.label }}
               </a>
             </li>
@@ -38,9 +38,14 @@
         <p class="text-gray-500 text-sm">
           Demo site — modern redesign concept for Yellowstone Tractor & Equipment
         </p>
-        <p class="text-gray-500 text-sm">
-          Built on the notdone.dev platform
-        </p>
+        <div class="flex items-center gap-4">
+          <p class="text-gray-500 text-sm">
+            Built on the notdone.dev platform
+          </p>
+          <router-link to="/admin/login" class="text-gray-600 hover:text-gray-400 text-xs transition-colors">
+            Admin
+          </router-link>
+        </div>
       </div>
     </div>
   </footer>
