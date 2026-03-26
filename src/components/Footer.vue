@@ -26,10 +26,10 @@
         <div>
           <h4 class="text-white font-semibold mb-4">Contact</h4>
           <div class="space-y-2 text-sm text-gray-400">
-            <p>Belgrade: (406) 388-4599</p>
-            <p>Victor: (406) 642-3768</p>
-            <p>Kalispell: (406) 752-2539</p>
-            <p class="pt-2">info@yellowstonetractor.com</p>
+            <p>Belgrade: (406) 388-2423</p>
+            <p>Victor: (406) 642-6090</p>
+            <p>Kalispell: (406) 579-7297</p>
+            <p class="pt-2">yellowstonetractor@yahoo.com</p>
           </div>
         </div>
       </div>

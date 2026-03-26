@@ -21,7 +21,7 @@
               </div>
               <div>
                 <div class="font-semibold text-navy-900">Belgrade (Main)</div>
-                <a href="tel:4063884599" class="text-gray-500 hover:text-amber-500 transition-colors">(406) 388-4599</a>
+                <a href="tel:4063882423" class="text-gray-500 hover:text-amber-500 transition-colors">(406) 388-2423</a>
               </div>
             </div>
             <div class="flex items-center gap-4">
@@ -30,7 +30,7 @@
               </div>
               <div>
                 <div class="font-semibold text-navy-900">Email</div>
-                <span class="text-gray-500">info@yellowstonetractor.com</span>
+                <span class="text-gray-500">yellowstonetractor@yahoo.com</span>
               </div>
             </div>
           </div>

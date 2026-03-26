@@ -103,26 +103,26 @@ export const services = [
 export const locations = [
   {
     city: 'Belgrade',
-    address: '316 Arden Dr',
+    address: '5662 Kessler Road',
     state: 'MT 59714',
-    phone: '(406) 388-4599',
-    hours: 'Mon-Fri 8am-5pm, Sat 9am-1pm',
+    phone: '(406) 388-2423',
+    hours: 'Mon-Fri 8am-5:30pm, Sat 8am-12pm',
     note: 'Main dealership & service center'
   },
   {
     city: 'Victor',
-    address: '3059 US-93',
+    address: '150 Be Kind Lane',
     state: 'MT 59875',
-    phone: '(406) 642-3768',
-    hours: 'Mon-Fri 8am-5pm, Sat by appt',
+    phone: '(406) 642-6090',
+    hours: 'Mon-Fri 8am-5:30pm, Sat 9am-12pm',
     note: 'Bitterroot Valley location'
   },
   {
     city: 'Kalispell',
-    address: '3180 US-93',
+    address: '968 Demersville Rd',
     state: 'MT 59901',
-    phone: '(406) 752-2539',
-    hours: 'Mon-Fri 8am-5pm, Sat by appt',
+    phone: '(406) 579-7297',
+    hours: 'Mon-Fri 8am-5:30pm, Sat 9am-12pm',
     note: 'Flathead Valley location'
   }
 ]
